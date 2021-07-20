@@ -1,10 +1,13 @@
 package com.hi.dhl.binding.databind
 
+import android.view.LayoutInflater
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Lifecycle
 import com.hi.dhl.binding.base.FragmentDelegate
 import com.hi.dhl.binding.inflateMethod
+import java.lang.Exception
 import kotlin.reflect.KProperty
 
 /**
@@ -17,7 +20,7 @@ import kotlin.reflect.KProperty
 
 class FragmentDataBinding<T : ViewDataBinding>(
     classes: Class<T>,
-    val fragment: Fragment,
+    private val fragment: Fragment,
     private var block: (T.() -> Unit)? = null
 ) : FragmentDelegate<T>(fragment) {
 
@@ -29,12 +32,22 @@ class FragmentDataBinding<T : ViewDataBinding>(
 
         } ?: let {
 
-            val bind: T
-            if (thisRef.view == null) {
-                // 这里为了兼容在 navigation 中使用 Fragment
-                bind = layoutInflater.invoke(null, thisRef.layoutInflater) as T
+            val lifecycle = fragment.viewLifecycleOwner.lifecycle
+            if (!lifecycle.currentState.isAtLeast(Lifecycle.State.INITIALIZED)) {
+                throw IllegalStateException("Should not attempt to get bindings when Fragment views are destroyed.")
+            }
+
+            val bind: T = if (thisRef.view == null) {
+                try {
+                    // 这里为了兼容在 navigation 中使用 Fragment
+                    layoutInflater.invoke(null, thisRef.layoutInflater) as T
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                    // 兼容 thisRef.layoutInflater 特殊情况下为 null 抛出异常的情况
+                    layoutInflater.invoke(null, LayoutInflater.from(thisRef.activity)) as T
+                }
             } else {
-                bind = DataBindingUtil.bind(thisRef.view!!)!!
+                DataBindingUtil.bind(thisRef.requireView())!!
             }
 
             return bind.apply {
