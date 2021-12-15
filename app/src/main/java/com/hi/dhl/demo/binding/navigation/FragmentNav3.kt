@@ -1,12 +1,10 @@
 package com.hi.dhl.demo.binding.navigation
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
-import com.hi.dhl.binding.viewbind
+import com.hi.dhl.binding.ext.viewbind
 import com.hi.dhl.demo.binding.R
 import com.hi.dhl.demo.binding.databinding.FragmentNav3Binding
 

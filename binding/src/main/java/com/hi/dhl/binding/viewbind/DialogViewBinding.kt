@@ -4,7 +4,7 @@ import android.app.Dialog
 import androidx.lifecycle.Lifecycle
 import androidx.viewbinding.ViewBinding
 import com.hi.dhl.binding.base.DialogDelegate
-import com.hi.dhl.binding.inflateMethod
+import com.hi.dhl.binding.ext.inflateMethod
 import kotlin.reflect.KProperty
 
 /**

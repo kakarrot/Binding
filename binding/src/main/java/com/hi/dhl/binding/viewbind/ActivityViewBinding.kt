@@ -3,7 +3,7 @@ package com.hi.dhl.binding.viewbind
 import android.app.Activity
 import androidx.viewbinding.ViewBinding
 import com.hi.dhl.binding.base.ActivityDelegate
-import com.hi.dhl.binding.inflateMethod
+import com.hi.dhl.binding.ext.inflateMethod
 import kotlin.reflect.KProperty
 
 /**

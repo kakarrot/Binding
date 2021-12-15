@@ -1,12 +1,13 @@
 package com.hi.dhl.binding.databind
 
+import android.util.Log
 import android.view.LayoutInflater
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import com.hi.dhl.binding.base.FragmentDelegate
-import com.hi.dhl.binding.inflateMethod
+import com.hi.dhl.binding.ext.inflateMethod
 import java.lang.Exception
 import kotlin.reflect.KProperty
 
@@ -34,7 +35,8 @@ class FragmentDataBinding<T : ViewDataBinding>(
 
             val lifecycle = fragment.viewLifecycleOwner.lifecycle
             if (!lifecycle.currentState.isAtLeast(Lifecycle.State.INITIALIZED)) {
-                throw IllegalStateException("Should not attempt to get bindings when Fragment views are destroyed.")
+                Log.e("Binding Error", "Should not attempt to get bindings when Fragment views are destroyed.")
+                //throw IllegalStateException("Should not attempt to get bindings when Fragment views are destroyed.")
             }
 
             val bind: T = if (thisRef.view == null) {

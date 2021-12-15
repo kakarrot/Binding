@@ -1,4 +1,4 @@
-package com.hi.dhl.binding
+package com.hi.dhl.binding.ext
 
 import android.app.Activity
 import android.app.Dialog
@@ -74,7 +74,7 @@ inline fun <reified T : ViewBinding> ViewGroup.databind(@LayoutRes resId: Int) =
     ViewGroupDataBinding(
         T::class.java,
         resId,
-        LayoutInflater.from(getContext())
+        LayoutInflater.from(context)
     )
 
 inline fun <reified T : ViewBinding> ViewGroup.databind(
@@ -83,7 +83,7 @@ inline fun <reified T : ViewBinding> ViewGroup.databind(
 ) = ViewGroupDataBinding(
     T::class.java,
     resId,
-    LayoutInflater.from(getContext()),
+    LayoutInflater.from(context),
     block
 )
 
@@ -110,12 +110,12 @@ inline fun <reified T : ViewBinding> RecyclerView.ViewHolder.viewbind() =
 
 inline fun <reified T : ViewBinding> ViewGroup.viewbind() = ViewGroupViewBinding(
     T::class.java,
-    LayoutInflater.from(getContext())
+    LayoutInflater.from(context)
 )
 
 inline fun <reified T : ViewBinding> ViewGroup.viewbind(viewGroup: ViewGroup) =
     ViewGroupViewBinding(
         T::class.java,
-        LayoutInflater.from(getContext()),
+        LayoutInflater.from(context),
         viewGroup
     )

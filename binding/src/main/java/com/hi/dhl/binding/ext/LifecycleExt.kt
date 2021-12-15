@@ -1,4 +1,4 @@
-package com.hi.dhl.binding
+package com.hi.dhl.binding.ext
 
 import android.annotation.SuppressLint
 import android.app.Activity

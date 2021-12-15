@@ -3,7 +3,7 @@ package com.hi.dhl.binding.base
 import android.app.Dialog
 import androidx.lifecycle.Lifecycle
 import androidx.viewbinding.ViewBinding
-import com.hi.dhl.binding.observerWhenDestroyed
+import com.hi.dhl.binding.ext.observerWhenDestroyed
 import kotlin.properties.ReadOnlyProperty
 
 /**

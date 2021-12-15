@@ -3,8 +3,8 @@ package com.hi.dhl.binding.viewbind
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.viewbinding.ViewBinding
-import com.hi.dhl.binding.inflateMethod
-import com.hi.dhl.binding.inflateMethodWithViewGroup
+import com.hi.dhl.binding.ext.inflateMethod
+import com.hi.dhl.binding.ext.inflateMethodWithViewGroup
 import java.lang.reflect.Method
 import kotlin.properties.ReadOnlyProperty
 import kotlin.reflect.KProperty

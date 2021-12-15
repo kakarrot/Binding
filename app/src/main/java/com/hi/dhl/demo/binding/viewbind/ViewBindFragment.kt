@@ -3,9 +3,10 @@ package com.hi.dhl.demo.binding.viewbind
 import android.app.Activity
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
-import com.hi.dhl.binding.viewbind
+import com.hi.dhl.binding.ext.viewbind
 import com.hi.dhl.demo.binding.R
 import com.hi.dhl.demo.binding.brvah.BRVAHActivity
 import com.hi.dhl.demo.binding.databind.BindViewStubActivity
@@ -76,5 +77,11 @@ class ViewBindFragment : Fragment(R.layout.fragment_view_bind), View.OnClickList
                 }
             }
         }
+    }
+
+    override fun onDestroyView() {
+        binding.btnDialog.background = null
+        Log.e("ABCD", "onDestroyView")
+        super.onDestroyView()
     }
 }

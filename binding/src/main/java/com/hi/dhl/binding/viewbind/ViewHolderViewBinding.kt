@@ -2,7 +2,7 @@ package com.hi.dhl.binding.viewbind
 
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
-import com.hi.dhl.binding.bindMethod
+import com.hi.dhl.binding.ext.bindMethod
 import kotlin.properties.ReadOnlyProperty
 import kotlin.reflect.KProperty
 

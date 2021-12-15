@@ -29,7 +29,7 @@ fun bindingImage(imageView: ImageView, url: String?) {
 @BindingAdapter("bindingLiveData")
 fun bindingLiveData(textView: TextView, user: User?) {
     user?.apply {
-        textView.setText("@BindingAdapter + LiveData + parcelize 示例 \n")
+        textView.text = "@BindingAdapter + LiveData + parcelize 示例 \n"
         textView.append("${name} - ${account}")
     }
 
@@ -40,7 +40,7 @@ fun bindAdapterList(recyclerView: RecyclerView, data: List<Product>?) {
     val adapter = recyclerView.adapter as? ProductAdapter
         ?: throw RuntimeException("adapter must bu not null")
     data?.let {
-        adapter.submitList(it)
-        adapter.notifyDataSetChanged()
+        val tempList = data.map { item -> item.copy() }
+        adapter.submitList(tempList)
     }
 }

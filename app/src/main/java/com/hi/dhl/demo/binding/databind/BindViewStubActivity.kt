@@ -6,7 +6,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewStubProxy
-import com.hi.dhl.binding.databind
+import com.hi.dhl.binding.ext.databind
 import com.hi.dhl.demo.binding.R
 import com.hi.dhl.demo.binding.databinding.ActivityViewStubBinding
 import com.hi.dhl.demo.binding.databinding.ViewStubBinding

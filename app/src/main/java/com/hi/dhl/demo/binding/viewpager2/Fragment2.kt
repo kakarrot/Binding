@@ -5,13 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation
-import com.hi.dhl.binding.databind
+import com.hi.dhl.binding.ext.databind
 import com.hi.dhl.demo.binding.MainViewModel
-import com.hi.dhl.demo.binding.R
-import com.hi.dhl.demo.binding.databinding.Fragment1Binding
 import com.hi.dhl.demo.binding.databinding.Fragment2Binding
-import com.hi.dhl.demo.binding.databinding.FragmentNav2Binding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 /**

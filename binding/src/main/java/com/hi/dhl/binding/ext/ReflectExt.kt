@@ -1,4 +1,4 @@
-package com.hi.dhl.binding
+package com.hi.dhl.binding.ext
 
 import android.view.LayoutInflater
 import android.view.View

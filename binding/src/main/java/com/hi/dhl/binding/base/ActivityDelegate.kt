@@ -6,8 +6,8 @@ import androidx.activity.ComponentActivity
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentActivity
 import androidx.viewbinding.ViewBinding
-import com.hi.dhl.binding.LifecycleFragment
-import com.hi.dhl.binding.observerWhenDestroyed
+import com.hi.dhl.binding.ext.LifecycleFragment
+import com.hi.dhl.binding.ext.observerWhenDestroyed
 import kotlin.properties.ReadOnlyProperty
 
 /**
