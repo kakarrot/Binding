@@ -56,10 +56,6 @@ Binding 未来的规划提供通用的 `findViewById` 解决方案，，因技�
 
 ## Download
 
-因 Jcenter 即将被废弃，已经将 Binding 迁移到 mavenCentral
-
-**添加 jcenter**
-
 将下列代码添加在 Project 级别的 `build.gradle` 文件中
 
 ```
@@ -86,9 +82,11 @@ android {
 }
 
 dependencies {
-    implementation 'com.hi-dhl:binding:1.1.3'
+    implementation 'com.hi-dhl:binding:${binding_version}'
 }
 ```
+
+binding 最新版本 ![](https://img.shields.io/maven-central/v/com.hi-dhl/binding.svg?label=Maven%20Central)
 
 ## 简单的 API
 
@@ -301,6 +299,23 @@ val binding: ActivityDataBindBinding by databind(R.layout.activity_data_bind) {
 ```
 
 ### 更新记录
+
+**2022-10-07（V1.1.9）**
+
+* 兼容 jdk >= 1.8
+
+**2022-7-13（V1.1.7）**
+
+* 兼容不传 ViewGroup 的情况[#34](https://github.com/hi-dhl/Binding/issues/34)
+
+**2022-5-12（V1.1.5）**
+
+*  修改 ViewGroup 销毁的时候释放资源 [#33](https://github.com/hi-dhl/Binding/issues/33)
+
+**2022-5-03（V1.1.4）**
+
+*  修复了生命周期问题
+*  修复了销毁之后再次使用，由于 delegate property 会被再次初始化，出现的异常 [#31](https://github.com/hi-dhl/Binding/issues/31)
 
 **2021-5-09（V1.1.3）**
 

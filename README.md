@@ -91,9 +91,11 @@ android {
 }
 
 dependencies {
-    implementation 'com.hi-dhl:binding:1.1.3'
+    implementation 'com.hi-dhl:binding:${binding_version}'
 }
 ```
+
+The latest version ![](https://img.shields.io/maven-central/v/com.hi-dhl/binding.svg?label=Maven%20Central)
 
 ## simple API
 
@@ -302,6 +304,23 @@ Do not want to generate a binding class for a layout, add the following attribut
 ```
 
 ### change log
+
+**2022-10-07（V1.1.9）**
+
+* Compatible with jdk >= 1.8 version
+
+**2022-7-13（V1.1.7）**
+
+* 兼容不传 ViewGroup 的情况[#34](https://github.com/hi-dhl/Binding/issues/34)
+
+**2022-5-12（V1.1.5）**
+
+*  修改 ViewGroup 销毁的时候释放资源 [#33](https://github.com/hi-dhl/Binding/issues/33)
+
+**2022-5-03（V1.1.4）**
+
+*  修复了生命周期问题
+*  修复了销毁之后再次使用，由于 delegate property 会被再次初始化，出现的异常 [#31](https://github.com/hi-dhl/Binding/issues/31)
 
 **2021-5-09（V1.1.3）**
 

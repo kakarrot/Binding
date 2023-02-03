@@ -1,15 +1,13 @@
 package com.hi.dhl.binding.base
 
-import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.viewbinding.ViewBinding
-import com.hi.dhl.binding.ext.observerWhenCreated
+import com.hi.dhl.binding.observerWhenCreated
 import kotlin.properties.ReadOnlyProperty
 
 /**
  * <pre>
- *
  *     author: dhl
  *     date  : 2020/12/15
  *     desc  :
@@ -22,30 +20,27 @@ abstract class FragmentDelegate<T : ViewBinding>(
     protected var viewBinding: T? = null
 
     init {
-        /**
-         * 感谢 architecture-components-samples 提供的思路
-         *
-         * 原处理方案是监听 viewLifecycle的生命周期在 onDestroyView时 设置 binding为空，但如果在
-         * onDestroyView有释放view的操作，会导致无法找到 binding 报错（或者二次初始化）
-         * 详情查看 [issue][https://github.com/android/architecture-components-samples/issues/56]
-         */
+
+        // 详情查看 [issue][https://github.com/hi-dhl/Binding/issues/31#issuecomment-1109729949]
         fragment.lifecycle.observerWhenCreated {
-            val fragmentManager = fragment.parentFragmentManager
+            val fragmentManager = fragment.requireFragmentManager()
             fragmentManager.registerFragmentLifecycleCallbacks(object :
                 FragmentManager.FragmentLifecycleCallbacks() {
                 override fun onFragmentViewDestroyed(fm: FragmentManager, f: Fragment) {
                     super.onFragmentViewDestroyed(fm, f)
+                    // 检查 fragment 的目的，为了防止类似于加载多个 Fragment 场景销毁的时候，出现不必要的异常
                     if (f == fragment) {
                         destroyed()
                         fragmentManager.unregisterFragmentLifecycleCallbacks(this)
                     }
+
                 }
             }, false)
         }
+
     }
 
     private fun destroyed() {
-        Log.e("binding", "取消")
         viewBinding = null
     }
 }
