@@ -1,11 +1,13 @@
 package com.hi.dhl.binding.viewbind
 
+import android.util.Log
+import android.view.LayoutInflater
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.viewbinding.ViewBinding
 import com.hi.dhl.binding.base.FragmentDelegate
-import com.hi.dhl.binding.bindMethod
-import com.hi.dhl.binding.inflateMethod
+import com.hi.dhl.binding.ext.bindMethod
+import com.hi.dhl.binding.ext.inflateMethod
 import java.lang.Exception
 import kotlin.reflect.KProperty
 
@@ -18,7 +20,7 @@ import kotlin.reflect.KProperty
  */
 class FragmentViewBinding<T : ViewBinding>(
     classes: Class<T>,
-    fragment: Fragment
+    private val fragment: Fragment
 ) : FragmentDelegate<T>(fragment) {
 
     private val layoutInflater = classes.inflateMethod()
@@ -30,28 +32,23 @@ class FragmentViewBinding<T : ViewBinding>(
 
         } ?: let {
 
-            try {
-                /**
-                 * 检查目的，是为了防止在 onCreateView() or after onDestroyView() 使用 binding。
-                 * 另外在销毁之后，如果再次使用，由于 delegate property 会被再次初始化出现的异常
-                 *
-                 * 捕获这个异常的原因，是为了兼容之前的版本，防止因为升级，造成崩溃
-                 */
-                check(thisRef.viewLifecycleOwner.lifecycle.currentState.isAtLeast(Lifecycle.State.INITIALIZED)) {
-                    "cannot use binding in before onCreateView() or after onDestroyView() from 1.1.4. about [issue](https://github.com/hi-dhl/Binding/issues/31#issuecomment-1109733307)"
-                }
-            } catch (e: Exception) {
-                e.printStackTrace()
+            val lifecycle = fragment.viewLifecycleOwner.lifecycle
+            if (!lifecycle.currentState.isAtLeast(Lifecycle.State.INITIALIZED)) {
+                Log.e("Binding Error", "Should not attempt to get bindings when Fragment views are destroyed.")
+                //throw IllegalStateException("Should not attempt to get bindings when Fragment views are destroyed.")
             }
 
-
-            val bind: T
-            if (thisRef.view == null) {
-                // 这里为了兼容在 navigation 中使用 Fragment
-                bind = layoutInflater.invoke(null, thisRef.layoutInflater) as T
+            val bind: T = if (thisRef.view == null) {
+                try {
+                    // 这里为了兼容在 navigation 中使用 Fragment
+                    layoutInflater.invoke(null, thisRef.layoutInflater) as T
+                } catch (e: Exception) {
+                    Log.e("fragment-view-binding", e.message ?: "layoutInflater error!!!")
+                    // 兼容 thisRef.layoutInflater 特殊情况下为 null 抛出异常的情况
+                    layoutInflater.invoke(null, LayoutInflater.from(thisRef.activity)) as T
+                }
             } else {
-                bind = bindView.invoke(null, thisRef.view) as T
-
+                bindView.invoke(null, thisRef.view) as T
             }
 
             return bind.apply { viewBinding = this }

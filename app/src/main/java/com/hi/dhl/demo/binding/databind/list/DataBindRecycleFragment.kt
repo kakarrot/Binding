@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
-import com.hi.dhl.binding.ext.databind
+import com.hi.dhl.binding.databind
 import com.hi.dhl.demo.binding.R
 import com.hi.dhl.demo.binding.databinding.FragmentDataBindRecycleBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel

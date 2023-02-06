@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
-import com.hi.dhl.binding.ext.viewbind
+import com.hi.dhl.binding.viewbind
 import com.hi.dhl.demo.binding.R
 import com.hi.dhl.demo.binding.databinding.FragmentNav3Binding
 

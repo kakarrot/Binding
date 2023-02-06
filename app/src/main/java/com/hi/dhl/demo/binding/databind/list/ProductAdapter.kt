@@ -7,8 +7,8 @@ import androidx.annotation.LayoutRes
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.hi.dhl.binding.ext.databind
-import com.hi.dhl.binding.ext.viewbind
+import com.hi.dhl.binding.databind
+import com.hi.dhl.binding.viewbind
 import com.hi.dhl.demo.binding.R
 import com.hi.dhl.demo.binding.databinding.RecycleItemProductBinding
 import com.hi.dhl.demo.binding.databinding.RecycleItemProductFooterBinding

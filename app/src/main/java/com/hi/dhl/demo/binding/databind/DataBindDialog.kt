@@ -5,7 +5,7 @@ import android.content.Context
 import android.os.Bundle
 import android.view.Window
 import androidx.lifecycle.Lifecycle
-import com.hi.dhl.binding.ext.databind
+import com.hi.dhl.binding.databind
 import com.hi.dhl.demo.binding.R
 import com.hi.dhl.demo.binding.databinding.DialogDataBindingBinding
 

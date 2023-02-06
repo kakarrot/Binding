@@ -6,7 +6,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewStubProxy
-import com.hi.dhl.binding.ext.databind
+import com.hi.dhl.binding.databind
 import com.hi.dhl.demo.binding.R
 import com.hi.dhl.demo.binding.databinding.ActivityViewStubBinding
 import com.hi.dhl.demo.binding.databinding.ViewStubBinding
@@ -26,7 +26,7 @@ class BindViewStubActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding.viewStub.setOnInflateListener { stub, inflated ->
+        binding.viewStub.setOnInflateListener { _, inflated ->
 
             // ViewBinding
             val viewStub: ViewStubBinding = ViewStubBinding.bind(inflated)
@@ -34,7 +34,7 @@ class BindViewStubActivity : AppCompatActivity() {
 
         }
 
-        binding.viewStubData.setOnInflateListener { stub, inflated ->
+        binding.viewStubData.setOnInflateListener { _, inflated ->
 
             // DataBinding
             val dataViewStub: ViewStubDataBinding = DataBindingUtil.bind(inflated)!!

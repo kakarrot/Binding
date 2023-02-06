@@ -7,8 +7,8 @@ import androidx.databinding.ObservableField
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import kotlinx.parcelize.Parcelize
 import java.util.*
-import kotlinx.android.parcel.Parcelize
 
 /**
  * <pre>

@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.hi.dhl.binding.ext.viewbind
+import com.hi.dhl.binding.viewbind
 import com.hi.dhl.demo.binding.databinding.Fragment4Binding
 
 /**

@@ -3,7 +3,7 @@ package com.hi.dhl.demo.binding
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.hi.dhl.binding.ext.viewbind
+import com.hi.dhl.binding.viewbind
 import com.hi.dhl.demo.binding.databind.DatBindActivity
 import com.hi.dhl.demo.binding.databinding.ActivityMainBinding
 import com.hi.dhl.demo.binding.viewbind.ViewBindActivity
