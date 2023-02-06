@@ -1,4 +1,4 @@
-package com.hi.dhl.binding
+package com.hi.dhl.binding.ext
 
 import android.app.Activity
 import android.app.Dialog

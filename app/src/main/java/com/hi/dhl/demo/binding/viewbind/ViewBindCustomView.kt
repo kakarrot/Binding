@@ -3,7 +3,7 @@ package com.hi.dhl.demo.binding.viewbind
 import android.content.Context
 import android.util.AttributeSet
 import android.widget.LinearLayout
-import com.hi.dhl.binding.viewbind
+import com.hi.dhl.binding.ext.viewbind
 import com.hi.dhl.demo.binding.databinding.LayoutMergeItemBinding
 import com.hi.dhl.demo.binding.databinding.LayoutViewCustomBinding
 

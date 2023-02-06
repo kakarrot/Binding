@@ -5,7 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.hi.dhl.binding.databind
+import com.hi.dhl.binding.ext.databind
 import com.hi.dhl.demo.binding.MainViewModel
 import com.hi.dhl.demo.binding.R
 import com.hi.dhl.demo.binding.databind.list.DataBindRecycleActivity

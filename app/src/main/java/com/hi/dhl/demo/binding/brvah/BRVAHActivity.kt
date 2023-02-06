@@ -10,7 +10,7 @@ import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
-import com.hi.dhl.binding.viewbind
+import com.hi.dhl.binding.ext.viewbind
 import com.hi.dhl.demo.binding.R
 import com.hi.dhl.demo.binding.databind.list.ListViewModel
 import com.hi.dhl.demo.binding.databind.list.Product
