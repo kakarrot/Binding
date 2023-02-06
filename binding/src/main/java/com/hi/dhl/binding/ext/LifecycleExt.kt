@@ -6,7 +6,6 @@ import android.app.Application
 import android.app.Fragment
 import android.os.Build
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.BindingLifecycleObserver
 import androidx.lifecycle.Lifecycle
@@ -108,7 +107,7 @@ class LifecycleFragment : Fragment {
 private const val LIFECYCLE_FRAGMENT_TAG = "com.hi.dhl.binding.lifecycle_fragment"
 internal inline fun Activity.registerLifecycleBelowQ(crossinline destroyed: () -> Unit) {
     val activity = this
-    if (activity is FragmentActivity || activity is AppCompatActivity) return
+    if (activity is FragmentActivity) return
 
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) return
 

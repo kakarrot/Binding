@@ -46,9 +46,9 @@ dependencies {
     ext.nav_version = "2.5.3"
     ext.constraintlayout = "2.1.4"
     ext.material = "1.8.0"
-    ext.appcompat = "1.2.0"
+    ext.appcompat = "1.6.0"
     ext.ktx = "1.9.0"
-    ext.remote = true
+    ext.remote = false
 
     implementation "androidx.core:core-ktx:${ktx}"
     implementation "androidx.appcompat:appcompat:${appcompat}"
@@ -69,7 +69,4 @@ dependencies {
         implementation project(':binding')
     }
     implementation "com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4"
-    testImplementation 'junit:junit:4.+'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 }

@@ -4,8 +4,8 @@ import android.app.Activity
 import android.os.Build
 import androidx.activity.ComponentActivity
 import androidx.viewbinding.ViewBinding
-import com.hi.dhl.binding.observerWhenDestroyed
-import com.hi.dhl.binding.registerLifecycleBelowQ
+import com.hi.dhl.binding.ext.observerWhenDestroyed
+import com.hi.dhl.binding.ext.registerLifecycleBelowQ
 import kotlin.properties.ReadOnlyProperty
 
 /**

@@ -3,7 +3,7 @@ package com.hi.dhl.binding.base
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.viewbinding.ViewBinding
-import com.hi.dhl.binding.observerWhenCreated
+import com.hi.dhl.binding.ext.observerWhenCreated
 import kotlin.properties.ReadOnlyProperty
 
 /**
